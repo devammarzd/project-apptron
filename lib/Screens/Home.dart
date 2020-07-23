@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:project_apptron/CustomWidgets/CustomScaffold.dart';
+import 'package:project_apptron/Global.dart';
 
 import 'package:project_apptron/clothicons_icons.dart';
-
+import 'package:http/http.dart' as http;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Home extends StatefulWidget {
@@ -18,15 +18,16 @@ class _HomeState extends State<Home> {
     return CustomScaffold(
         index: 0,
         body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: 150,
-                child: Padding(
-                  padding: EdgeInsets.all(10),
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  height: 150,
                   child: ListView(
                     primary: false,
                     shrinkWrap: true,
@@ -169,48 +170,76 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-              ),
 //ad
-              Card(
-                elevation: 5.0,
-                // color: Colors.green[100],
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                child: Stack(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image(
-                        image: AssetImage('assets/extras/discountpic.jpeg'),
-                        height: MediaQuery.of(context).size.height / 3.0,
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.fill,
+                Card(
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        child: Image(
+                          image: AssetImage('assets/extras/discountpic.jpeg'),
+                          height: MediaQuery.of(context).size.height / 3.0,
+                          width: MediaQuery.of(context).size.width,
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                    ),
-                    Positioned(
-                        left: 20,
-                        top: 50,
-                        child: Text(
-                          'AVAIL UPTO',
-                          style: TextStyle(
-                              fontFamily: 'Cinzel',
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        )),
-                    Positioned(
-                        left: 20,
-                        top: 80,
-                        child: Text(
-                          '40% DISCOUNT',
-                          style: TextStyle(
-                              fontFamily: 'Cinzel',
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ))
-                  ],
+                      Positioned(
+                          left: 20,
+                          top: 100,
+                          child: Text(
+                            'FOR SLIM',
+                            style: TextStyle(
+                                color: secondaryColor,
+                                fontFamily: 'Cinzel',
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          )),
+                      Positioned(
+                          left: 20,
+                          top: 130,
+                          child: Text(
+                            '& BEAUTY',
+                            style: TextStyle(
+                                color: secondaryColor,
+                                fontFamily: 'Cinzel',
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ))
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 25,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+
+                      Text(
+                        'Featured Products',
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            letterSpacing: 3,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      FlatButton(
+                        onPressed: (){},
+                                              child: Text(
+                          'Show All',
+                          style: TextStyle(
+                              fontFamily: 'Montserrat',
+          
+                              
+                             ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }

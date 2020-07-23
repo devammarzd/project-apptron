@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_apptron/Global.dart';
 import 'package:project_apptron/Screens/Home.dart';
 class CustomNavbar extends StatefulWidget {
   final int index;
@@ -11,6 +12,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      selectedItemColor: primaryTextColor,
         type: BottomNavigationBarType.fixed,
         currentIndex: widget.index,
         elevation: 12,
@@ -44,27 +46,27 @@ class _CustomNavbarState extends State<CustomNavbar> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
-            title: Text('')
+            title: Text('Home',style: TextStyle(fontSize: 10),)
              ),
           BottomNavigationBarItem(
               icon: Icon(Icons.border_all),
-               title: Text('')
+               title: Text('Categories',style: TextStyle(fontSize: 10),)
              ),
           BottomNavigationBarItem(
               icon: Icon(Icons.search),
-               title: Text('')
+               title: Text('Search',style: TextStyle(fontSize: 10),)
             ),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart),
-               title: Text('')
+               title: Text('Cart',style: TextStyle(fontSize: 10),)
               ),
           BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),
-               title: Text('')
+               title: Text('Account',style: TextStyle(fontSize: 10),)
              ),
              BottomNavigationBarItem(
               icon: Icon(Icons.shopping_basket),
-               title: Text('')
+               title: Text('Orders',style: TextStyle(fontSize: 10),)
              )
         ]);
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_apptron/CustomWidgets/CustomScaffold.dart';
+import 'package:project_apptron/Global.dart';
 import 'package:project_apptron/Screens/Home.dart';
 
 void main() {
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'DidactGothic',
+    iconTheme: IconThemeData(
+      color: primaryTextColor
+    ),
     
       ),
       home:Home(),
