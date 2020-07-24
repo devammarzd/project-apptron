@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_apptron/Global.dart';
+import 'package:project_apptron/Screens/AllCategories.dart';
 import 'package:project_apptron/Screens/Home.dart';
 class CustomNavbar extends StatefulWidget {
   final int index;
@@ -24,7 +25,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
           }
           if (index == 1) {
             Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) =>Home()),
+                MaterialPageRoute(builder: (context) =>AllCategories()),
                 (Route<dynamic> route) => false);
           }
           if (index == 2) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:project_apptron/CustomWidgets/CustomScaffold.dart';
+import 'package:project_apptron/CustomWidgets/Loading.dart';
 import 'package:project_apptron/Global.dart';
 import 'dart:convert';
 import 'package:project_apptron/clothicons_icons.dart';
@@ -16,30 +17,36 @@ class _HomeState extends State<Home> {
   String url =
       "https://api.unsplash.com/search/photos/?query=female dress&client_id=ChAav-2ffB3ek3FLfLSjARu7K7cRxsW2-FkdwEkIxlg&per_page=5&content_filter=high&orientation=portrait";
   List data;
-  String dataextract;
+bool loading=false;
   String id = '';
   String picurl;
   List<String> dressnames=['Bodycon Dress', 'Zebra Skirt', 'Slit Dress', 'Summer Dress', 'Black Dress'];
   List<String> dressprices=['100', '80', '110', '90', '130'];
 
-  Future makeRequestforbody() async {
-    var response = await http
-        .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
-    print(response.body);
-  }
+  // Future makeRequestforbody() async {
+  //   var response = await http
+  //       .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
+  //   print(response.body);
+  // }
 
   Future makeRequestsingleitem() async {
+    setState(() {
+      loading=true;
+    });
     var response = await http
         .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
     var extractdata = JsonDecoder().convert(response.body);
 
     data = extractdata["results"];
     print('printed drom data list variable ' + data[0]["id"]);
-// OR we can write print(extractdata["results"][0]["name"]);
+
     setState(() {
       picurl = data[0]['urls']['small'];
     });
     print(data.length);
+       setState(() {
+      loading=false;
+    });
   }
 
   @override
@@ -53,7 +60,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return CustomScaffold(
         index: 0,
-        body: SingleChildScrollView(
+        body: loading? Loading():
+         SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(5.0),
             child: Column(
@@ -281,37 +289,42 @@ class _HomeState extends State<Home> {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return Column(
-                          children: <Widget>[
-                            Card(
-                              color: Colors.white,
-                              child: picurl != null
-                                  ? Image.network(
-                                       data[index]['urls']['small'],
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              3,
-                                      width: MediaQuery.of(context).size.width /
-                                          2.5,
-                                      fit: BoxFit.cover,
-                                    )
-                                  : Container(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              3,
-                                      width: MediaQuery.of(context).size.width /
-                                          2.5,
-                                    ),
-                            ),
-                            Text(
-                              dressnames[index],
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            Text(dressprices[index]+'\$'),
-                          ],
+                        return InkWell(
+                          onTap: (){},
+                                                  child: Column(
+                            children: <Widget>[
+                              Card(
+                                color: Colors.white,
+                                child: picurl != null
+                                    ? Image.network(
+                                         data[index]['urls']['small'],
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                3,
+                                        width: MediaQuery.of(context).size.width /
+                                            2.5,
+                                        fit: BoxFit.cover,
+                                      )
+                                    : Container(
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                3,
+                                        width: MediaQuery.of(context).size.width /
+                                            2.5,
+                                      ),
+                              ),
+                              Text(
+                                dressnames[index],
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              Text(dressprices[index]+'\$'),
+                            ],
+                          ),
                         );
                       }),
                 ),
+
+                
               ],
             ),
           ),
