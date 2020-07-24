@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:project_apptron/CustomWidgets/CustomScaffold.dart';
 import 'package:project_apptron/Global.dart';
-
+import 'dart:convert';
 import 'package:project_apptron/clothicons_icons.dart';
 import 'package:http/http.dart' as http;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -13,6 +13,42 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String url =
+      "https://api.unsplash.com/search/photos/?query=female dress&client_id=ChAav-2ffB3ek3FLfLSjARu7K7cRxsW2-FkdwEkIxlg&per_page=5&content_filter=high&orientation=portrait";
+  List data;
+  String dataextract;
+  String id = '';
+  String picurl;
+  List<String> dressnames=['Bodycon Dress', 'Zebra Skirt', 'Slit Dress', 'Summer Dress', 'Black Dress'];
+  List<String> dressprices=['100', '80', '110', '90', '130'];
+
+  Future makeRequestforbody() async {
+    var response = await http
+        .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
+    print(response.body);
+  }
+
+  Future makeRequestsingleitem() async {
+    var response = await http
+        .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
+    var extractdata = JsonDecoder().convert(response.body);
+
+    data = extractdata["results"];
+    print('printed drom data list variable ' + data[0]["id"]);
+// OR we can write print(extractdata["results"][0]["name"]);
+    setState(() {
+      picurl = data[0]['urls']['small'];
+    });
+    print(data.length);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    makeRequestsingleitem();
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -215,7 +251,6 @@ class _HomeState extends State<Home> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-
                       Text(
                         'Featured Products',
                         style: TextStyle(
@@ -225,19 +260,58 @@ class _HomeState extends State<Home> {
                             fontWeight: FontWeight.w700),
                       ),
                       FlatButton(
-                        onPressed: (){},
-                                              child: Text(
+                        onPressed: () {
+                          makeRequestsingleitem();
+                        },
+                        child: Text(
                           'Show All',
                           style: TextStyle(
-                              fontFamily: 'Montserrat',
-          
-                              
-                             ),
+                            fontFamily: 'Montserrat',
+                          ),
                         ),
                       ),
                     ],
                   ),
-                )
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height / 2.5,
+                  child: ListView.builder(
+                      itemCount: data.length,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: <Widget>[
+                            Card(
+                              color: Colors.white,
+                              child: picurl != null
+                                  ? Image.network(
+                                       data[index]['urls']['small'],
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              3,
+                                      width: MediaQuery.of(context).size.width /
+                                          2.5,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : Container(
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              3,
+                                      width: MediaQuery.of(context).size.width /
+                                          2.5,
+                                    ),
+                            ),
+                            Text(
+                              dressnames[index],
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            Text(dressprices[index]+'\$'),
+                          ],
+                        );
+                      }),
+                ),
               ],
             ),
           ),
