@@ -31,6 +31,8 @@ dependencies:
   cupertino_icons: ^0.1.3
   material_design_icons_flutter: ^4.0.5345
   http: ^0.12.2
+  fa_stepper: ^0.0.2
+  flutter_speed_dial: ^1.2.5
   
 
 dev_dependencies:

@@ -59,6 +59,7 @@ bool loading=false;
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      bottomappbarTitle: Container(),
         index: 0,
         body: loading? Loading():
          SingleChildScrollView(

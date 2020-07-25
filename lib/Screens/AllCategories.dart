@@ -47,6 +47,7 @@ class _AllCategoriesState extends State<AllCategories> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      bottomappbarTitle: Container(),
         index: 1,
         body: SingleChildScrollView(
           child: Column(
@@ -117,7 +118,7 @@ class _AllCategoriesState extends State<AllCategories> {
                                       height: 10,
                                     ),
                                     Text(
-                                      '41 Products',
+                                      datalist[index]['Products']+' Products',
                                       style: TextStyle(
                                           fontFamily: 'Montserrat',
                                           color: Colors.white),

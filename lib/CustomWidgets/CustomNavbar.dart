@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_apptron/Global.dart';
 import 'package:project_apptron/Screens/AllCategories.dart';
+import 'package:project_apptron/Screens/Cart.dart';
 import 'package:project_apptron/Screens/Home.dart';
+import 'package:project_apptron/Screens/SearchScreen.dart';
+import 'package:project_apptron/Screens/Stepperdemo.dart';
 class CustomNavbar extends StatefulWidget {
   final int index;
   const CustomNavbar({Key key, @required this.index}) : super(key: key);
@@ -30,12 +33,12 @@ class _CustomNavbarState extends State<CustomNavbar> {
           }
           if (index == 2) {
             Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) =>Home()),
+                MaterialPageRoute(builder: (context) =>SearchScreen()),
                 (Route<dynamic> route) => false);
           }
           if (index == 3) {
             Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => Home()),
+                MaterialPageRoute(builder: (context) => Cart()),
                 (Route<dynamic> route) => false);
           }
           if (index == 4) {
