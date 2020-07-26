@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_apptron/Global.dart';
 import 'package:project_apptron/Screens/AllCategories.dart';
-import 'package:project_apptron/Screens/Cart.dart';
+import 'package:project_apptron/Screens/CartScreens/Cart.dart';
 import 'package:project_apptron/Screens/Home.dart';
 import 'package:project_apptron/Screens/SearchScreen.dart';
 import 'package:project_apptron/Screens/Stepperdemo.dart';

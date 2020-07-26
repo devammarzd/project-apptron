@@ -5,6 +5,14 @@ final Color primaryColor = Color.fromRGBO(247, 82, 80, 1);
 final Color secondaryColor = Colors.white;
 final Color primaryTextColor = Color.fromRGBO(247, 82, 80, 1);
 final Color secondaryTextColor = Colors.white;
+List inputFieldsDelivery=[
+  
+ 'First Name','Last Name', 'Address', 'Country', 'State', 'Town/City', 'Postcode' , 'Email','Phone Number'
+
+
+];
+
+
 List dressdata=[
   {
   'Dress':'Velvet Gown Dress',

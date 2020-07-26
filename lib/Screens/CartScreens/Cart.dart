@@ -2,6 +2,10 @@ import 'package:fa_stepper/fa_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:project_apptron/CustomWidgets/CustomScaffold.dart';
 import 'package:project_apptron/Global.dart';
+import 'package:project_apptron/Screens/CartScreens/CartContent.dart';
+import 'package:project_apptron/Screens/CartScreens/DeliveryContent.dart';
+import 'package:project_apptron/Screens/CartScreens/OrderContent.dart';
+import 'package:project_apptron/Screens/CartScreens/PaymentContent.dart';
 
 class Cart extends StatefulWidget {
   @override
@@ -97,6 +101,7 @@ class _CartState extends State<Cart> {
                   primaryColor: Colors.green,
                 ),
                 child: FAStepper(
+                  
                     currentStep: currentstep,
                     titleHeight: 90,
                     type: FAStepperType.horizontal,
@@ -106,6 +111,7 @@ class _CartState extends State<Cart> {
                       return Container();
                     },
                     steps: [
+//Cart Step
                       FAStep(
                           title: Column(
                             children: <Widget>[
@@ -128,13 +134,8 @@ class _CartState extends State<Cart> {
                           ),
                           isActive: cartStateActive,
                           state: cartState,
-                          content: SingleChildScrollView(
-                            child: Column(
-                              children: <Widget>[
-                                Text('Cart Screen'),
-                              ],
-                            ),
-                          )),
+                          content: CartContent()),
+//Delivry Step
                       FAStep(
                           title: Column(
                             children: <Widget>[
@@ -157,11 +158,8 @@ class _CartState extends State<Cart> {
                           ),
                           isActive: delvStateActive,
                           state: delvState,
-                          content: SingleChildScrollView(
-                            child: Column(
-                              children: <Widget>[Text('Delivery')],
-                            ),
-                          )),
+                          content: DeliveryContent()),
+//PaymentStep
                       FAStep(
                           title: Column(
                             children: <Widget>[
@@ -184,11 +182,8 @@ class _CartState extends State<Cart> {
                           ),
                           isActive: payStateActive,
                           state: payState,
-                          content: SingleChildScrollView(
-                            child: Column(
-                              children: <Widget>[Text('Payment')],
-                            ),
-                          )),
+                          content:PaymentContent() ),
+//Order Step
                       FAStep(
                           title: Column(
                             children: <Widget>[
@@ -209,11 +204,7 @@ class _CartState extends State<Cart> {
                           ),
                           isActive: orderStateActive,
                           state: orderState,
-                          content: SingleChildScrollView(
-                            child: Column(
-                              children: <Widget>[Text('Order')],
-                            ),
-                          ))
+                          content: OrderContent())
                     ]),
               ),
             ),
