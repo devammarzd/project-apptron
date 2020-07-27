@@ -4,6 +4,7 @@ import 'package:project_apptron/Screens/Account.dart';
 import 'package:project_apptron/Screens/AllCategories.dart';
 import 'package:project_apptron/Screens/CartScreens/Cart.dart';
 import 'package:project_apptron/Screens/Home.dart';
+import 'package:project_apptron/Screens/OrderScreens/Orders.dart';
 import 'package:project_apptron/Screens/SearchScreen.dart';
 import 'package:project_apptron/Screens/Stepperdemo.dart';
 class CustomNavbar extends StatefulWidget {
@@ -45,6 +46,11 @@ class _CustomNavbarState extends State<CustomNavbar> {
           if (index == 4) {
             Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(builder: (context) => AccountScreen()),
+                (Route<dynamic> route) => false);
+          }
+          if (index == 5) {
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => Orders()),
                 (Route<dynamic> route) => false);
           }
         },
