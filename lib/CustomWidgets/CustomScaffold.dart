@@ -16,10 +16,12 @@ class _CustomScaffoldState extends State<CustomScaffold> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/8),
+        preferredSize:widget.bottomappbarTitle
+                ==null?Size.fromHeight(MediaQuery.of(context).size.height/12): Size.fromHeight(MediaQuery.of(context).size.height/8),
 
               child: AppBar(
-                bottom: PreferredSize(child: widget.bottomappbarTitle, preferredSize:widget.index==3? Size(0,0): Size.fromHeight(MediaQuery.of(context).size.height/10)),
+                bottom:widget.bottomappbarTitle
+                ==null? PreferredSize(child: Container(), preferredSize: Size(0, 0)): PreferredSize(child: widget.bottomappbarTitle, preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/10)),
           elevation: 0,
           backgroundColor:Colors.transparent,
           iconTheme: IconThemeData(

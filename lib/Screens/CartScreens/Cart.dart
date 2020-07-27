@@ -101,7 +101,6 @@ class _CartState extends State<Cart> {
                   primaryColor: Colors.green,
                 ),
                 child: FAStepper(
-                  
                     currentStep: currentstep,
                     titleHeight: 90,
                     type: FAStepperType.horizontal,
@@ -116,8 +115,7 @@ class _CartState extends State<Cart> {
                           title: Column(
                             children: <Widget>[
                               Icon(Icons.shopping_cart,
-                                  size:currentstep==0
-                                        ? 26:20,
+                                  size: currentstep == 0 ? 26 : 20,
                                   color: cartState == FAStepstate.editing
                                       ? Theme.of(context).primaryColor
                                       : Colors.green),
@@ -127,8 +125,7 @@ class _CartState extends State<Cart> {
                                     color: cartState == FAStepstate.editing
                                         ? primaryTextColor
                                         : Colors.green,
-                                    fontSize:currentstep==0
-                                        ? 16: 12),
+                                    fontSize: currentstep == 0 ? 16 : 12),
                               ),
                             ],
                           ),
@@ -140,8 +137,7 @@ class _CartState extends State<Cart> {
                           title: Column(
                             children: <Widget>[
                               Icon(Icons.location_on,
-                                  size:currentstep==1
-                                      ?26: 20,
+                                  size: currentstep == 1 ? 26 : 20,
                                   color: delvState == FAStepstate.editing
                                       ? Theme.of(context).primaryColor
                                       : Colors.green),
@@ -151,8 +147,7 @@ class _CartState extends State<Cart> {
                                     color: delvState == FAStepstate.editing
                                         ? primaryTextColor
                                         : Colors.green,
-                                    fontSize:currentstep==1
-                                        ?16: 12),
+                                    fontSize: currentstep == 1 ? 16 : 12),
                               ),
                             ],
                           ),
@@ -164,8 +159,7 @@ class _CartState extends State<Cart> {
                           title: Column(
                             children: <Widget>[
                               Icon(Icons.payment,
-                                  size: currentstep==2
-                                      ?26:20,
+                                  size: currentstep == 2 ? 26 : 20,
                                   color: payState == FAStepstate.editing
                                       ? Theme.of(context).primaryColor
                                       : Colors.green),
@@ -175,20 +169,19 @@ class _CartState extends State<Cart> {
                                     color: payState == FAStepstate.editing
                                         ? primaryTextColor
                                         : Colors.green,
-                                    fontSize:currentstep==2
-                                      ?16: 12),
+                                    fontSize: currentstep == 2 ? 16 : 12),
                               ),
                             ],
                           ),
                           isActive: payStateActive,
                           state: payState,
-                          content:PaymentContent() ),
+                          content: PaymentContent()),
 //Order Step
                       FAStep(
                           title: Column(
                             children: <Widget>[
                               Icon(Icons.done_all,
-                                  size:currentstep==3?26: 20,
+                                  size: currentstep == 3 ? 26 : 20,
                                   color: orderState == FAStepstate.editing
                                       ? Theme.of(context).primaryColor
                                       : Colors.green),
@@ -198,7 +191,7 @@ class _CartState extends State<Cart> {
                                     color: orderState == FAStepstate.editing
                                         ? primaryTextColor
                                         : Colors.green,
-                                    fontSize:currentstep==3?16: 12),
+                                    fontSize: currentstep == 3 ? 16 : 12),
                               ),
                             ],
                           ),
@@ -208,41 +201,68 @@ class _CartState extends State<Cart> {
                     ]),
               ),
             ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.redAccent[200],
-                    onPressed: () {
-                      cancel();
-                    },
-                    child: Container(
-                        height: 50,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Back',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        )),
+            currentstep == 3
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      RaisedButton(
+                        color: Colors.orangeAccent,
+                        onPressed: () {},
+                        child: Container(
+                            height: 50,
+                            width: 130,
+                            alignment: Alignment.center,
+                            child: Text(
+                              'View My Orders',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18),
+                            )),
+                      ),
+                    ],
+                  )
+                : Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Expanded(
+                        child: RaisedButton(
+                          color: Colors.redAccent[200],
+                          onPressed: () {
+                            cancel();
+                          },
+                          child: Container(
+                              height: 50,
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Back',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18),
+                              )),
+                        ),
+                      ),
+                      Expanded(
+                        child: RaisedButton(
+                          color: Colors.green[700],
+                          onPressed: () {
+                            next();
+                          },
+                          child: Container(
+                              height: 50,
+                              alignment: Alignment.center,
+                              child: currentstep == 2
+                                  ? Text(
+                                      'Confirm Order',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    )
+                                  : Text(
+                                      'Next',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    )),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                Expanded(
-                  child: RaisedButton(
-                    color: Colors.green[700],
-                    onPressed: () {
-                      next();
-                    },
-                    child: Container(
-                        height: 50,
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Next',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        )),
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
         bottomappbarTitle: Container());

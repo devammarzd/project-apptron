@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_apptron/Global.dart';
+import 'package:project_apptron/Screens/Account.dart';
 import 'package:project_apptron/Screens/AllCategories.dart';
 import 'package:project_apptron/Screens/CartScreens/Cart.dart';
 import 'package:project_apptron/Screens/Home.dart';
@@ -43,7 +44,7 @@ class _CustomNavbarState extends State<CustomNavbar> {
           }
           if (index == 4) {
             Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => Home()),
+                MaterialPageRoute(builder: (context) => AccountScreen()),
                 (Route<dynamic> route) => false);
           }
         },
