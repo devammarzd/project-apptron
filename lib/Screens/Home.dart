@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:project_apptron/CustomWidgets/CustomScaffold.dart';
 import 'package:project_apptron/CustomWidgets/Loading.dart';
 import 'package:project_apptron/Global.dart';
+import 'package:project_apptron/Screens/ItemDetails/ItemDetails.dart';
 import 'dart:convert';
 import 'package:project_apptron/clothicons_icons.dart';
 import 'package:http/http.dart' as http;
@@ -291,14 +292,18 @@ bool loading=false;
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return InkWell(
-                          onTap: (){},
+                          onTap: (){
+                            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => ItemDetail(url: data[index]['urls']['regular'] , dressname: dressnames[index] ,price:dressprices[index],))
+                            );
+                          },
                                                   child: Column(
                             children: <Widget>[
                               Card(
                                 color: Colors.white,
                                 child: picurl != null
                                     ? Image.network(
-                                         data[index]['urls']['small'],
+                                         data[index]['urls']['regular'],
                                         height:
                                             MediaQuery.of(context).size.height /
                                                 3,
