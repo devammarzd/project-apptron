@@ -5,11 +5,11 @@ import 'package:project_apptron/Screens/ItemDetails/Features.dart';
 
 class ItemDetail extends StatefulWidget {
   final String url;
-  final String dressname;
+  final String name;
   final String price;
   const ItemDetail({
   @required this.url,
-  @required  this.dressname,
+  @required  this.name,
   @required  this.price,
     Key key,
   }) : super(key: key);
@@ -45,7 +45,7 @@ class _ItemDetailState extends State<ItemDetail> {
                     widget.url,
                     height: MediaQuery.of(context).size.height / 1.7,
                     width: MediaQuery.of(context).size.width / 1.3,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 SizedBox(
@@ -73,7 +73,7 @@ class _ItemDetailState extends State<ItemDetail> {
                 Container(
                   alignment: Alignment.center,
                   width: MediaQuery.of(context).size.width,
-                  child: Text(widget.dressname,
+                  child: Text(widget.name,
                       style: TextStyle(
                         fontSize: 20,
                       )),
