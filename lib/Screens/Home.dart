@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => Collection(
                                           collectionName: 'Shirts',
-                                          urlSearch: 'shirt',
+                                          urlSearch: 't shirt',
                                         )));
                               },
                               child: Column(

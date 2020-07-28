@@ -82,7 +82,7 @@ class _CollectionState extends State<Collection> {
                                   MaterialPageRoute(builder: (context) => ItemDetail(
                                     url:data[index]['urls']['regular'] ,
                                     price: '200',
-                                    name: 'XYZ',
+                                    name: 'Item ${index+1}',
 
                                   )));
                             },
@@ -136,7 +136,7 @@ class _CollectionState extends State<Collection> {
                                     child: Column(
                                       children: <Widget>[
                                         Text(
-                                          'xyz',
+                                          'Item ${index+1}',
                                           style: TextStyle(
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -144,7 +144,7 @@ class _CollectionState extends State<Collection> {
                                           height: 5.0,
                                         ),
                                         Text(
-                                          'Price: PKR',
+                                          'Price: 200 USD',
                                           style: TextStyle(
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -180,7 +180,7 @@ class _CollectionState extends State<Collection> {
                                   MaterialPageRoute(builder: (context) => ItemDetail(
                                     url:data[index+10]['urls']['regular'] ,
                                     price: '200',
-                                    name: 'XYZ',
+                                    name: 'Item ${index+11}',
 
                                   )));
                             },
@@ -234,7 +234,7 @@ class _CollectionState extends State<Collection> {
                                     child: Column(
                                       children: <Widget>[
                                         Text(
-                                          'xyz',
+                                          'Item ${index+11}',
                                           style: TextStyle(
                                               fontWeight: FontWeight.w600),
                                         ),
@@ -242,7 +242,7 @@ class _CollectionState extends State<Collection> {
                                           height: 5.0,
                                         ),
                                         Text(
-                                          'Price: PKR',
+                                          'Price: 200 USD',
                                           style: TextStyle(
                                               fontWeight: FontWeight.w600),
                                         ),
