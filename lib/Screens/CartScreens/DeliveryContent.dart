@@ -210,38 +210,39 @@ class _DeliveryContentState extends State<DeliveryContent> {
             height: 15,
           ),
           ListView.separated(
-            separatorBuilder: (context,index){
-              return SizedBox(height: 10,);
-            },
-            shrinkWrap: true,
-            primary: false,
-            itemCount: inputFieldsDelivery.length,
-            itemBuilder: (context,index){
-
-return  Row(
-            children: <Widget>[
-              Expanded(
-                child: Container(
-                  child: Text(
-                    '${inputFieldsDelivery[index]}:',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ),
-              Expanded(
-                  child: Container(
-                height: 40,
-                child: TextField(
-                  cursorColor: Colors.green,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black))),
-                ),
-              ))
-            ],
-          );
-          })
-         
+              separatorBuilder: (context, index) {
+                return SizedBox(
+                  height: 10,
+                );
+              },
+              shrinkWrap: true,
+              primary: false,
+              itemCount: inputFieldsDelivery.length,
+              itemBuilder: (context, index) {
+                return Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        child: Text(
+                          '${inputFieldsDelivery[index]}:',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                      height: 40,
+                      child: TextField(
+                        cursorColor: Colors.green,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black))),
+                      ),
+                    ))
+                  ],
+                );
+              })
         ],
       ),
     );

@@ -46,9 +46,8 @@ class _OrdersState extends State<Orders> {
                           ),
                           InkWell(
                               onTap: () {
-                                 Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => OrderDetails()));
-        
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => OrderDetails()));
                               },
                               child: Text(
                                 'Show Details',
@@ -60,7 +59,9 @@ class _OrdersState extends State<Orders> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Container(
                       padding: EdgeInsets.only(left: 8, right: 8),
                       width: MediaQuery.of(context).size.width,
@@ -78,7 +79,9 @@ class _OrdersState extends State<Orders> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Container(
                       padding: EdgeInsets.only(left: 8, right: 8),
                       width: MediaQuery.of(context).size.width,
@@ -96,7 +99,9 @@ class _OrdersState extends State<Orders> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Container(
                       padding: EdgeInsets.only(left: 8, right: 8),
                       width: MediaQuery.of(context).size.width,
@@ -114,7 +119,9 @@ class _OrdersState extends State<Orders> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Container(
                       padding: EdgeInsets.only(left: 8, right: 8),
                       width: MediaQuery.of(context).size.width,
@@ -127,9 +134,7 @@ class _OrdersState extends State<Orders> {
                           ),
                           Text(
                             '100 USD',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w800
-                            ),
+                            style: TextStyle(fontWeight: FontWeight.w800),
                           )
                         ],
                       ),

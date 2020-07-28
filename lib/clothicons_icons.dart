@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/Clothicons.ttf
 ///
-/// 
+///
 ///
 import 'package:flutter/widgets.dart';
 
@@ -21,9 +21,14 @@ class Clothicons {
   static const _kFontFam = 'Clothicons';
   static const _kFontPkg = null;
 
-  static const IconData sport_trousers_pants = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData wedding_dress = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData woman_shirt = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData fashion_purse = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData panties = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData sport_trousers_pants =
+      IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData wedding_dress =
+      IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData woman_shirt =
+      IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData fashion_purse =
+      IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData panties =
+      IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

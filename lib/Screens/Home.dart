@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             InkWell(
-                               onTap: () {
+                              onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                     builder: (context) => Collection(
                                           collectionName: 'Jeans',

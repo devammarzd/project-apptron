@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_apptron/Global.dart';
+import 'package:project_apptron/Screens/CartScreens/Cart.dart';
 import 'package:project_apptron/Screens/ItemDetails/Description.dart';
 import 'package:project_apptron/Screens/ItemDetails/Features.dart';
 
@@ -8,9 +9,9 @@ class ItemDetail extends StatefulWidget {
   final String name;
   final String price;
   const ItemDetail({
-  @required this.url,
-  @required  this.name,
-  @required  this.price,
+    @required this.url,
+    @required this.name,
+    @required this.price,
     Key key,
   }) : super(key: key);
   @override
@@ -88,7 +89,7 @@ class _ItemDetailState extends State<ItemDetail> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text('\$'+widget.price,
+                      Text('\$' + widget.price,
                           style: TextStyle(
                             fontSize: 18,
                           )),
@@ -142,14 +143,18 @@ class _ItemDetailState extends State<ItemDetail> {
           ),
         ),
         floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => Cart()),
+                (Route<dynamic> route) => false);
+          },
           backgroundColor: Colors.orangeAccent,
           label: Text(
             'Buy Now',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
           ),
           icon: Icon(Icons.payment),
-          foregroundColor: Colors.white,  
+          foregroundColor: Colors.white,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),

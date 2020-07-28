@@ -6,6 +6,7 @@ import 'package:project_apptron/Screens/CartScreens/CartContent.dart';
 import 'package:project_apptron/Screens/CartScreens/DeliveryContent.dart';
 import 'package:project_apptron/Screens/CartScreens/OrderContent.dart';
 import 'package:project_apptron/Screens/CartScreens/PaymentContent.dart';
+import 'package:project_apptron/Screens/OrderScreens/Orders.dart';
 
 class Cart extends StatefulWidget {
   @override
@@ -207,7 +208,11 @@ class _CartState extends State<Cart> {
                     children: <Widget>[
                       RaisedButton(
                         color: Colors.orangeAccent,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (context) => Orders()),
+                              (Route<dynamic> route) => false);
+                        },
                         child: Container(
                             height: 50,
                             width: 130,

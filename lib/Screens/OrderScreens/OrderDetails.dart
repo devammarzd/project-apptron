@@ -56,7 +56,8 @@ class OrderDetails extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       'Subtotal',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     Text(
                       '\$100.00',
@@ -76,7 +77,8 @@ class OrderDetails extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       'Shipping',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     Text(
                       '\$10.00',
@@ -99,7 +101,8 @@ class OrderDetails extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       'Total',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     Text(
                       '\$110.00',

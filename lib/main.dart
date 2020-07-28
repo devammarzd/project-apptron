@@ -16,16 +16,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: primaryTextColor,
-          accentColor: primaryTextColor,
-          
+        accentColor: primaryTextColor,
         fontFamily: 'DidactGothic',
-    iconTheme: IconThemeData(
-      color: primaryTextColor
-    ),
-    
+        iconTheme: IconThemeData(color: primaryTextColor),
       ),
-      home:Home(),
+      home: Home(),
     );
   }
 }
-

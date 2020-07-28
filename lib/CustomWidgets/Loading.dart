@@ -9,12 +9,10 @@ class Loading extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Card(
         color: Colors.redAccent[100],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30)
-        ) ,
-      elevation: 10.0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        elevation: 10.0,
         child: CircularProgressIndicator(
-strokeWidth: 5,
+          strokeWidth: 5,
           valueColor: new AlwaysStoppedAnimation<Color>(primaryTextColor),
           backgroundColor: secondaryColor,
         ),

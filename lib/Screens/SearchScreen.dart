@@ -98,7 +98,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ItemDetail(
                                   url: data[index]['urls']['regular'],
-                                 name: dressdata[index]['Dress'],
+                                  name: dressdata[index]['Dress'],
                                   price: dressdata[index]['Price'])));
                         },
                         child: Card(

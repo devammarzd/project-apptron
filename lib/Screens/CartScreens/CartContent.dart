@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_apptron/Global.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+
 class CartContent extends StatefulWidget {
   @override
   _CartContentState createState() => _CartContentState();
@@ -21,7 +22,7 @@ class _CartContentState extends State<CartContent> {
         .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
     var extractdata = JsonDecoder().convert(response.body);
     data = extractdata["results"];
-    
+
     setState(() {
       loading = false;
     });
@@ -64,32 +65,32 @@ class _CartContentState extends State<CartContent> {
                       fontWeight: FontWeight.w600))
             ],
           ),
-            SizedBox(
+          SizedBox(
             height: 15,
           ),
           ListView.builder(
             shrinkWrap: true,
             primary: false,
-            itemCount:loading?0: data.length,
-            itemBuilder: (context,index){
-              return  Card(
+            itemCount: loading ? 0 : data.length,
+            itemBuilder: (context, index) {
+              return Card(
                 elevation: 0.0,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     ClipRRect(
-                      child:loading?
-                      Container(
-                                          height: MediaQuery.of(context).size.height / 7,
-                        width: MediaQuery.of(context).size.width / 3.5,
-                        color: Colors.grey[100],
-                      )
-                      
-                      : Image.network(data[index]['urls']['small'],
-                        height: MediaQuery.of(context).size.height / 7,
-                        width: MediaQuery.of(context).size.width / 3.5,
-                        fit: BoxFit.cover,
-                      ),
+                      child: loading
+                          ? Container(
+                              height: MediaQuery.of(context).size.height / 7,
+                              width: MediaQuery.of(context).size.width / 3.5,
+                              color: Colors.grey[100],
+                            )
+                          : Image.network(
+                              data[index]['urls']['small'],
+                              height: MediaQuery.of(context).size.height / 7,
+                              width: MediaQuery.of(context).size.width / 3.5,
+                              fit: BoxFit.cover,
+                            ),
                     ),
                     SizedBox(width: 10),
                     Column(
@@ -100,9 +101,7 @@ class _CartContentState extends State<CartContent> {
                         ),
                         Container(
                           width: 120,
-                   
                           child: Text(
-                            
                             dressdata[index]['Dress'],
                             style: TextStyle(fontSize: 16),
                             maxLines: 2,
@@ -111,7 +110,7 @@ class _CartContentState extends State<CartContent> {
                         SizedBox(
                           height: 10,
                         ),
-                        Text(dressdata[index]['Price']+'\$'),
+                        Text(dressdata[index]['Price'] + '\$'),
                       ],
                     ),
                     SizedBox(
@@ -140,8 +139,7 @@ class _CartContentState extends State<CartContent> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           InkWell(
-                            onTap: (){},
-                            child: Icon(Icons.arrow_drop_up)),
+                              onTap: () {}, child: Icon(Icons.arrow_drop_up)),
                           Container(
                             child: Text(
                               '1',
@@ -150,8 +148,7 @@ class _CartContentState extends State<CartContent> {
                             ),
                           ),
                           InkWell(
-                            onTap: (){},
-                            child: Icon(Icons.arrow_drop_down)),
+                              onTap: () {}, child: Icon(Icons.arrow_drop_down)),
                         ],
                       ),
                     )
@@ -159,7 +156,6 @@ class _CartContentState extends State<CartContent> {
                 ),
               );
             },
-          
           )
         ],
       ),

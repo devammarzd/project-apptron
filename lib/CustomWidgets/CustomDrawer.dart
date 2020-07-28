@@ -10,12 +10,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
   bool showMen = false;
   bool showWomen = false;
   bool showKids = false;
-  
 
   List catMen = ['Suits', 'T-Shirts', 'Jeans', 'Shoes'];
   List catWomen = ['Dress', 'T-Shirts', 'Jeans', 'Shoes'];
   List catKids = ['Toddler Clothes'];
-  
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -106,7 +105,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         showMen = !showMen;
                         showWomen = false;
                         showKids = false;
-       
                       });
                     },
                     child: showMen
@@ -176,7 +174,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         showWomen = !showWomen;
                         showMen = false;
                         showKids = false;
-              
                       });
                     },
                     child: showWomen
@@ -201,24 +198,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                     collectionName: 'Dress',
                                                     urlSearch: 'female dress',
                                                   )));
-                                    }
-                                     else  if (catWomen[index] == 'T-Shirts') {
+                                    } else if (catWomen[index] == 'T-Shirts') {
                                       Navigator.of(context)
                                           .push(MaterialPageRoute(
                                               builder: (context) => Collection(
                                                     collectionName: 'T-Shirts',
                                                     urlSearch: 'female shirt',
                                                   )));
-                                    }
-                                     else  if (catWomen[index] == 'Jeans') {
+                                    } else if (catWomen[index] == 'Jeans') {
                                       Navigator.of(context)
                                           .push(MaterialPageRoute(
                                               builder: (context) => Collection(
                                                     collectionName: 'Jeans',
                                                     urlSearch: 'jeans',
                                                   )));
-                                    }
-                                    else  if (catWomen[index] == 'Shoes') {
+                                    } else if (catWomen[index] == 'Shoes') {
                                       Navigator.of(context)
                                           .push(MaterialPageRoute(
                                               builder: (context) => Collection(
@@ -226,7 +220,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                     urlSearch: ' shoes',
                                                   )));
                                     }
-
                                   },
                                   dense: true,
                                   title: Text(catWomen[index]));
@@ -238,7 +231,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ListTile(
                   enabled: false,
                   dense: true,
-                
                   title: Text(
                     'Kids',
                     style: TextStyle(
@@ -252,7 +244,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         showKids = !showKids;
                         showMen = false;
                         showWomen = false;
-                  
                       });
                     },
                     child: showKids
@@ -270,15 +261,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                             itemBuilder: (context, index) {
                               return ListTile(
                                   onTap: () {
-if(catKids[index]=='Toddler Clothes'){
-  Navigator.of(context)
+                                    if (catKids[index] == 'Toddler Clothes') {
+                                      Navigator.of(context)
                                           .push(MaterialPageRoute(
                                               builder: (context) => Collection(
-                                                    collectionName: 'Kids Clothes',
+                                                    collectionName:
+                                                        'Kids Clothes',
                                                     urlSearch: 'toddler',
                                                   )));
-}
-
+                                    }
                                   },
                                   dense: true,
                                   title: Text(catKids[index]));
