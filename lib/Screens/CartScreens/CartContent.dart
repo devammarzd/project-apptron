@@ -100,7 +100,7 @@ class _CartContentState extends State<CartContent> {
                           height: 5,
                         ),
                         Container(
-                          width: 120,
+                          width: MediaQuery.of(context).size.width/3.5,
                           child: Text(
                             dressdata[index]['Dress'],
                             style: TextStyle(fontSize: 16),
@@ -113,43 +113,47 @@ class _CartContentState extends State<CartContent> {
                         Text(dressdata[index]['Price'] + '\$'),
                       ],
                     ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width / 20,
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Container(
-                            height: MediaQuery.of(context).size.height / 7,
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
-                              child: InkWell(
-                                  child: Icon(Icons.delete), onTap: () {}),
-                            ))
-                      ],
+                    // SizedBox(
+                    //   width: MediaQuery.of(context).size.width / 20,
+                    // ),
+                    Expanded(
+                                          child: Column(
+                        children: <Widget>[
+                          Container(
+                              height: MediaQuery.of(context).size.height / 7,
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 8.0),
+                                child: InkWell(
+                                    child: Icon(Icons.delete), onTap: () {}),
+                              ))
+                        ],
+                      ),
                     ),
                     SizedBox(width: 10),
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: primaryTextColor),
-                          borderRadius: BorderRadius.circular(20)),
-                      height: MediaQuery.of(context).size.height / 6.8,
-                      width: 40,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          InkWell(
-                              onTap: () {}, child: Icon(Icons.arrow_drop_up)),
-                          Container(
-                            child: Text(
-                              '1',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w600),
+                    Expanded(
+                                          child: Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: primaryTextColor),
+                            borderRadius: BorderRadius.circular(20)),
+                        height: MediaQuery.of(context).size.height / 6.8,
+                        width: 40,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            InkWell(
+                                onTap: () {}, child: Icon(Icons.arrow_drop_up)),
+                            Container(
+                              child: Text(
+                                '1',
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w600),
+                              ),
                             ),
-                          ),
-                          InkWell(
-                              onTap: () {}, child: Icon(Icons.arrow_drop_down)),
-                        ],
+                            InkWell(
+                                onTap: () {}, child: Icon(Icons.arrow_drop_down)),
+                          ],
+                        ),
                       ),
                     )
                   ],

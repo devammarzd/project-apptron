@@ -68,9 +68,12 @@ class _CollectionState extends State<Collection> {
                   GridView.builder(
                       shrinkWrap: true,
                       primary: false,
+
                       //  physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 2.4 / 4, crossAxisCount: 2),
+
+                          childAspectRatio:  MediaQuery.of(context).size.width /
+          (MediaQuery.of(context).size.height / 1.1), crossAxisCount: 2),
                       itemCount: 10,
                       itemBuilder: (context, index) {
                         return Card(
